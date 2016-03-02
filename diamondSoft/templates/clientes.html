@@ -1,0 +1,68 @@
+{% extends 'baseSubpagina.html' %}
+	
+{% block content %}	
+	<h3><a href="{% url 'miApp:portada' %}">Panel de control /</a> Catálogo de Clientes</h3>
+	<div class="menu">
+		<h2>Agregar un Cliente</h2>
+		<form action="cliente.html">
+			<label>Nombre:</label>
+		  	<input type="text" name="frNombre" placeholder="Juan García" required>
+
+		  	<label>Dirección:</label>
+		  	<input type="text" name="frDireccion" required>
+
+		  	<label>Teléfono:</label>
+		  	<input type="tel" name="frTelefono" required>
+
+		    <label>Foto:</label>
+		  	<input type="file" name="frFoto" required>
+		    <button type="submit">Guardar</button>	
+		</form>
+	</div>
+
+	<section class="registros">
+		<div class="lista">
+			<div class="encabezado">
+				<div class="regId">Id</div>
+				<div class="regNombre">Nombre</div>
+				<div class="regDireccion">Dirección</div>
+				<div class="regTelefono">Teléfono</div>
+				<div class="regAccion">Acción</div>
+			</div>
+			<div class="registro">
+				<div class="regId">1</div>
+				<div class="regNombre">Alejandra López Espino</div>
+				<div class="regDireccion">Parque Braulio Fdz. #321 La Misión</div>
+				<div class="regTelefono">877 773 25 65</div>
+				<div class="regAccion">
+					<a href="cliente.html" title="Ver"><div class="visualizar botonAcion">:)</div></a>			
+					<a href="editarCliente.html" title="Editar"><div class="editar botonAcion">:|</div></a>
+					<a href="eliminarCliente.html" title="Eliminar"> <div class="eliminar botonAcion">:(</div></a>
+				</div>
+			</div>
+			<div class="registro">
+				<div class="regId">2</div>
+				<div class="regNombre">Paolo Yabir</div>
+				<div class="regDireccion">Benito Juarez #210 28 de Junio</div>
+				<div class="regTelefono">877 773 65 87</div>
+				<div class="regAccion">
+					<a href="" title="Ver"><div class="visualizar botonAcion">:)</div></a>			
+					<a href="" title="Editar"><div class="editar botonAcion">:|</div></a>
+					<a href="" title="Eliminar"> <div class="eliminar botonAcion">:(</div></a>
+				</div>
+			</div>
+			<div class="registro">
+				<div class="regId">3</div>
+				<div class="regNombre">Osvaldo Quintero</div>
+				<div class="regDireccion">Real del Monte #210 Fraccionamiento Los Reales</div>
+				<div class="regTelefono">877 773 18 00</div>
+				<div class="regAccion">
+					<a href="" title="Ver"><div class="visualizar botonAcion">:)</div></a>			
+					<a href="" title="Editar"><div class="editar botonAcion">:|</div></a>
+					<a href="" title="Eliminar"> <div class="eliminar botonAcion">:(</div></a>
+				</div>
+			</div>
+			
+		</div>
+	</section>
+{% endblock %}

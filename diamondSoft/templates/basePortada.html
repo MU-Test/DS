@@ -1,0 +1,21 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Diamond Softt</title>
+	<link rel="stylesheet" href='{% static "css/estilos.css" %}'>
+</head>
+<body>
+<div class="contenedor">	
+	<header>	
+		<img src='{% static "imagenes/logo.png" %}' alt="" id="logo">
+		<h1>Diamond Soft</h1>
+	</header>	
+
+	{% block content %}
+	{% endblock %}
+	
+</div>
+</body>
+</html>

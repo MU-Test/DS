@@ -1,0 +1,26 @@
+{% extends 'basePortada.html' %}
+
+{% block content %}
+	<h3>Panel de control</h3>
+
+	<div class="menu">
+		<ul>
+			<li><strong>Ventas</strong></li>
+			<ul>
+				<li><a href="venta.html">Realizar una venta</a></li>
+				<li><a href="reporteVentas.html">Reporte de ventas</a></li>
+			</ul>
+			<li><strong>Compras</strong></li>
+			<ul>
+				<li><a href="venta.html">Realizar una compra</a></li>
+				<li><a href="venta.html">Reporte de compras</a></li>
+			</ul>
+			<li><strong>Catálogos</strong></li>
+			<ul>				
+				<li><a href="{% url 'miApp:clientes' %}">Catálogo de <strong>Clientes</strong></a></li>
+				<li><a href="{% url 'miApp:proveedores' %}">Catálogo de <strong>Proveedores</strong></a></li>
+				<li><a href="productos.html">Catálogo de <strong>Productos</strong></a></li>
+			</ul>
+		</ul>
+	</div>
+{% endblock %}
