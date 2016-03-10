@@ -3,7 +3,13 @@
 {% block content %}		
 	<h3><a href="{% url 'appDS:portada'%}">Panel de control /</a> <a href="{%url 'appDS:agregar'%}">Catálogo de Clientes /</a> Cliente: {{cliente.id}}</h3>
 	<div class="menu">
+			{% if ruta.vieneDe == 'crear' %}
+			<div class="alerta"> Registro <strong>agregado</strong> correctamente</div><br>
+			{% elif ruta.vieneDe == 'editar' %}
+			<div class="alerta"> Registro <strong>modificado</strong> correctamente</div><br>
+			{% else %}
 			<h2>Detalle de Cliente</h2>
+			{% endif %}
 			<label>Nombre:</label>
 		  	<p>{{cliente.nombre}}</p>
 

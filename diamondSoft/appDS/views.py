@@ -16,7 +16,8 @@ class ClienteUpdate(UpdateView):
     template_name= 'clientes/editar.html'
 
     def get_success_url(self):
-    	return reverse('appDS:detalle', kwargs={'pk': self.object.pk})	
+		self.request.session['origen'] = 'editar'		    	
+    		return reverse('appDS:detalle', kwargs={'pk': self.object.pk})	
 	
 
 class ListaCliente(ListView):
@@ -37,24 +38,27 @@ class DetalleCliente(DetailView):
 	
 	def get_context_data(self, **kwargs):
 		context= super(DetalleCliente, self).get_context_data(**kwargs)
+		if 'origen' in self.request.session:		
+			context['ruta'] = {'vieneDe':self.request.session['origen']} 
+			del self.request.session['origen']
+			
 		context['clientes'] = Cliente.objects.all()
-		return context	
-
-       
+		return context	       
         
 class CrearCliente(CreateView):
 	model = Cliente
 	fields=('id','nombre', 'telefono', 'direccion_1','foto')
 	template_name= 'clientes/cliente_form.html'
 
-	
+
+
 	def get_context_data(self, **kwargs):
 		context= super(CrearCliente, self).get_context_data(**kwargs)
-
 		context['clientes'] = Cliente.objects.all()
 		return context
 
 	def get_success_url(self):
+		self.request.session['origen'] = 'crear'		
     		return reverse('appDS:detalle', kwargs={'pk': self.object.pk})	
 
 	# success_url = reverse_lazy('clientes:clientes')	

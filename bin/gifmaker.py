@@ -1,4 +1,4 @@
-#!/home/alejandra/ds/bin/python
+#!/home/quho/DS2/bin/python
 #
 # The Python Imaging Library
 # $Id$
