@@ -1,10 +1,10 @@
 {% extends 'baseSubpagina.html' %}
 	
 {% block content %}		
-	<h3><a href="{% url 'miApp:portada' %}">Panel de control /</a> Catálogo de Proveedores</h3>
+	<h3><a href="{% url 'appDS:portada' %}">Panel de control /</a> Catálogo de Proveedores</h3>
 	<div class="menu">
 		<h2>Agregar un Proveedor</h2>	
-		<form action="">
+		{# <form action="">
 			<label>Nombre:</label>
 		  	<input type="text" name="frNombre" placeholder="Juan García" required>
 
@@ -17,7 +17,7 @@
 		    <label>Foto:</label>
 		  	<input type="file" name="frFoto" required>
 		    <button type="submit">Guardar</button>	
-		</form>
+		</form> #}
 	</div>
 
 	<section class="registros">

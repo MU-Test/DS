@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'clientes',
+    'productos',
+    'proveedores',
+    'appDS'
 ]
 
 MIDDLEWARE_CLASSES = [
@@ -76,8 +80,12 @@ WSGI_APPLICATION = 'diamondSoft.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'dsDB',
+        'USER': 'root',
+        'PASSWORD': 'alejandra',
+        'HOST': 'localhost',
+        'PORT':'5432'
     }
 }
 
@@ -127,4 +135,7 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static")
+# MEDIA_ROOT =  'media'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "media")
+

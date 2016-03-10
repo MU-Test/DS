@@ -86,7 +86,13 @@ textarea{
 	background-color: #FFF39F;
 	text-align:center;
 }
-.botonCancelar{
+.botonCancelar a{
+	height: 36px;
+	width: 100%;
+	font-size: 1.2em;
+	border:none;
+	color: #fff;
+	border-radius: 6px;
 	background-color:#19981A;
 	margin: 12px 0 10px 0;
 	border-bottom: solid 3px #0F7410;

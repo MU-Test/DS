@@ -1,0 +1,30 @@
+{% extends 'baseSubpagina.html' %}
+	
+{% block content %}		
+
+<h3><a href="{%url 'appDS:portada'%}">Panel de control /</a> <a href="{%url 'appDS:agregar'%}">Catálogo de Clientes /</a> <a href="{%url 'appDS:detalle' cliente.id%}">Cliente: {{cliente.id}} /</a> Editando</h3>
+	<div class="menu">
+		<h2>Editar Cliente</h2>
+
+		<form  method="POST" enctype="multipart/form-data">
+			{%csrf_token%}
+			{{form.as_p}}
+			<!--<label>Nombre:</label>
+		  	<input type="text" name="frNombre" placeholder="Juan García" required value="Alejandra López Espino">
+
+		  	<label>Dirección:</label>
+		  	<input type="text" name="frDireccion" required value="Parque Braulio Fdz. #321 La Misión">
+
+		  	<label>Teléfono:</label>
+		  	<input type="tel" name="frTelefono" required value="877 773 25 65">
+
+		    <label>Foto:</label>
+		    <figure>
+		  		<img src="imagenes/ale.jpg" alt="">
+		  	</figure>
+		  	<input type="file" name="frFoto"> -->
+		    <button type="submit">Guardar cambios</button>	
+		    <a class="botonCancelar" type="cancel" onclick="window.history.back();">Cancelar edición</a>			    
+		</form>
+	</div>
+{%endblock%}	

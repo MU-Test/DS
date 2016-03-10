@@ -1,0 +1,41 @@
+{% extends 'baseSubpagina.html' %}
+	
+{% block content %}	
+	<h3><a href="{% url 'appDS:portada' %}">Panel de control /</a> Catálogo de Clientes</h3>
+	<div class="menu">
+		<h2>Agregar un Cliente</h2>
+		<form action="" method="POST" enctype="multipart/form-data"> {#cliente.html#}
+			{%csrf_token%}
+			{{form.as_p}}
+			
+		    <button type="submit">Guardar</button>	
+		</form>
+	</div>
+
+	<section class="registros">
+		<div class="lista">
+			<div class="encabezado">
+				<div class="regId">Id</div>
+				<div class="regNombre">Nombre</div>
+				<div class="regDireccion">Dirección</div>
+				<div class="regTelefono">Teléfono</div>
+				<div class="regAccion">Acción</div>
+			</div>
+
+			{%for cl in object_list %}
+			<div class="registro">
+				<div class="regId">{{cl.id}}</div>
+				<div class="regNombre">{{cl.nombre}}</div>
+				<div class="regDireccion">{{cl.direccion_1}}</div>
+				<div class="regTelefono">{{cl.telefono}}</div>
+				<div class="regAccion">
+					<a href="{% url 'appDS:detalle' cl.id %}" title="Ver"><div class="visualizar botonAcion">:)</div></a>			
+					<a href="{% url 'appDS:update' cl.id%}" title="Editar"><div class="editar botonAcion">:|</div></a>
+					<a href="{%url 'appDS:borrar' cl.id%}" title="Eliminar"> <div class="eliminar botonAcion">:(</div></a>
+				</div>
+			</div>
+			{%endfor%}
+		
+		</div>
+	</section>
+{% endblock %}

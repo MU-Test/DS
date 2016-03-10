@@ -1,0 +1,61 @@
+{% extends 'baseSubpagina.html' %}
+	
+{% block content %}		
+
+	<h3><a href="{%url 'appDS:portada'%}">Panel de control /</a> Catálogo de Productos</h3>
+	<div class="menu">
+		<h2>Agregar un Producto</h2>
+		<form action="" method="POST" enctype="multipart/form-data" >
+			{%csrf_token%}
+			{{form.as_p}}
+			<!--<label>Producto:</label>
+		  	<input type="text" name="frNombre" placeholder="MS Office 2016" required>
+
+		  	<label>Descripción:</label>
+	        <textarea name="frDescripcion" required></textarea>
+
+		  	<label>Precio:</label>
+		  	<input type="number" name="frPrecio" placeholder="30.00" required>
+		  	
+		    <label>Foto:</label>
+		  	<input type="file" name="frFoto" required>
+
+		  	<label>Proveedor:</label>
+			<br>		  	
+			<select name="proveedor">
+			  <option value="24">Alejandra López Espino</option>
+			  <option value="25">Paolo Yabir</option>
+			  <option value="26">Osvaldo Quintero</option>
+			</select>-->
+
+			<br>
+			<br>
+		    <button type="submit">Guardar</button>	
+		</form>
+	</div>
+
+	<section class="registros">
+		<div class="lista">
+			<div class="encabezado">
+				<div class="regId">Id</div>
+				<div class="regNombre">Producto</div>
+				<div class="regDescripcion">Descripción</div>
+				<div class="regProveedor">Proveedor</div>
+				<div class="regAccion">Acción</div>
+			</div>
+			{%for pr in productos%}
+			<div class="registro">
+				<div class="regId">{{pr.id}}</div>
+				<div class="regNombre">{{pr.nombre}}</div>
+				<div class="regDescripcion">{{pr.descripcion}}</div>
+				<div class="regProveedor">{{pr.proveedor}}</div>
+				<div class="regAccion">
+					<a href="{%url 'appDS:detalleProducto' pr.id%}" title="Ver"><div class="visualizar botonAcion">:)</div></a>			
+					<a href="{%url 'appDS:updateProducto' pr.id%}" title="Editar"><div class="editar botonAcion">:|</div></a>
+					<a href="{%url 'appDS:borrarProducto' pr.id%}" title="Eliminar"> <div class="eliminar botonAcion">:(</div></a>
+				</div>
+			</div>
+			{%endfor%}			
+		</div>
+	</section>
+{%endblock%}

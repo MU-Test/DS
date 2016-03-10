@@ -1,0 +1,30 @@
+{% extends 'baseSubpagina.html' %}
+	
+{% block content %}	
+	<h3><a href="{%url 'appDS:portada'%}">Panel de control /</a> <a href="{%url 'appDS:agregar'%}">Catálogo de Clientes /</a> <a href="{%url 'appDS:detalle' cliente.id%}">Cliente: {{cliente.id}} /</a> Eliminando</h3>
+	<div class="menu">
+		<form action="" method="POST">{% csrf_token %}
+			<div class="alerta"><strong>&iquest;Eliminar este Cliente?</strong></div>
+			
+			<button class="botonEliminar" value="{%url 'appDS:borrar' object.id%}">Si eliminar</button>	
+		</form>
+		<button class="botonCancelar" onclick="location.href='{%url 'appDS:detalle' object.id%}';" >No eliminar</button>		
+			<br><br>
+			<label>Nombre:</label>
+		  	<p>{{cliente.nombre}}</p>
+
+		  	<label>Dirección:</label>
+		  	<p>{{cliente.direccion}}</p>
+
+		  	<label>Teléfono:</label>
+		  	<p>{{cliente.telefono}}</p>
+		    
+		  	<figure>
+		  		<img src="{{cliente.foto.url}}" alt="">
+		  	</figure>	
+
+			
+
+	</div>
+
+{%endblock%}

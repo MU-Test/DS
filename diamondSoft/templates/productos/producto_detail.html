@@ -1,0 +1,62 @@
+{% extends 'baseSubpagina.html' %}
+	
+{% block content %}		
+
+	<h3><a href="{%url 'appDS:portada'%}">Panel de control /</a> <a href="{%url 'appDS:agregarp'%}">Catálogo de Productos /</a> Producto:{{producto.id}}</h3>
+	<div class="menu">
+
+			{%if messages%}
+				<div class="alerta"><strong>{{message}}</strong></div>
+			{%endif%} 
+
+
+			{# <div class="alerta"><strong>&iexcl;Producto agregado!</strong></div> #}
+
+
+			<h2>Detalle de producto</h2>
+			<label>Nombre:</label>
+		  	<p>{{producto.nombre}}</p>
+
+		  	<label>Descripcion:</label>
+		  	<p>{{producto.descripcion}}</p>
+
+		  	<label>Precio:</label>
+		  	<p>{{producto.precio}}</p>
+		    
+		  	<figure>
+		  		<img src="{{producto.foto.url}}" alt="">
+		  	</figure>
+		  	<label>Proveedor:</label>
+		  	<p>{{producto.proveedor}}</p>	
+
+			<button class="botonEditar"  onclick="location.href='{%url 'appDS:updateProducto' producto.id%}';">Editar</button>	
+			<button class="botonEliminar" onclick="location.href='{%url 'appDS:borrarProducto' producto.id%}';">Eliminar</button>	
+
+	</div>
+	
+	<section class="registros">
+		<div class="lista">
+			<div class="encabezado">
+				<div class="regId">Id</div>
+				<div class="regNombre">Nombre</div>
+				<div class="regDireccion">Descripción</div>
+				<div class="regTelefono">Proveedor</div>
+				<div class="regAccion">Acción</div>
+			</div>
+		{%for pr in productos%}	
+			<div class="registro">
+				<div class="regId">{{pr.id}}</div>
+				<div class="regNombre">{{pr.nombre}}</div>
+				<div class="regDireccion">{{pr.descripcion}}</div>
+				<div class="regTelefono">{{pr.proveedor}}</div>
+				<div class="regAccion">
+					<a href="{%url 'appDS:detalleProducto' pr.id%}" title="Ver"><div class="visualizar botonAcion">:)</div></a>			
+					<a href="{%url 'appDS:updateProducto' pr.id%}" title="Editar"><div class="editar botonAcion">:|</div></a>
+					<a href="{%url 'appDS:borrarProducto' pr.id%}" title="Eliminar"> <div class="eliminar botonAcion">:(</div></a>
+				</div>
+			</div>	
+		{%endfor%}		
+		</div>
+	
+	</section>
+{%endblock%}

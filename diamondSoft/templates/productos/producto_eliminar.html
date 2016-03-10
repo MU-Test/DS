@@ -1,0 +1,31 @@
+{% extends 'baseSubpagina.html' %}
+	
+{% block content %}	
+	<h3><a href="{%url 'appDS:portada'%}">Panel de control /</a> <a href="{%url 'appDS:agregar'%}">Catálogo de Productos /</a> <a href="{%url 'appDS:detalleProducto' producto.id%}">Producto: {{producto.id}} /</a> Eliminando</h3>
+	<div class="menu">
+		<form action="" method="POST">{% csrf_token %}
+			<div class="alerta"><strong>&iquest;Eliminar este Cliente?</strong></div>
+			
+			<button class="botonEliminar" value="{%url 'appDS:borrarProducto' object.id%}">Si eliminar</button>	
+		</form>
+		<button class="botonCancelar" onclick="location.href='{%url 'appDS:detalleProducto' object.id%}';" >No eliminar</button>		
+			<br><br>
+			<label>Nombre:</label>
+		  	<p>{{producto.nombre}}</p>
+
+		  	<label>Descripción:</label>
+		  	<p>{{producto.descripcion}}</p>
+
+		  	<label>Precio:</label>
+		  	<p>{{producto.precio}}</p>
+		    
+		  	<figure>
+		  		<img src="{{producto.foto.url}}" alt="">
+		  	</figure>	
+			<label>Proveedor:</label>
+		  	<p>{{producto.proveedor}}</p>
+			
+
+	</div>
+
+{%endblock%}
